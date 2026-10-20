@@ -8,6 +8,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/posts/{id}', [FrontController::class, 'show'])->name('posts.show');
+Route::get('/category/{id}', [FrontController::class, 'category'])->name('category.posts');
+Route::get('/search', [FrontController::class, 'search'])->name('search');
+    
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin_staff'])->group(function () {
 
